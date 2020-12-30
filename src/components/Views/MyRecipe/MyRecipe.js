@@ -2,13 +2,18 @@ import React from 'react';
 
 
 class MyRecipe extends React.Component {
-  render(){
-    return(
-      <div>
-        <p>dodane składniki</p>
-      </div>
-    );
-  }
+    static propTypes = {
+
+    }
+    render(){
+      return(
+        <div>
+          <main>
+            <p>dodane składniki</p>
+          </main>
+        </div>
+      );
+    }
 }
 
 export default MyRecipe;

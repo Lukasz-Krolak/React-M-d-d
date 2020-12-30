@@ -10,8 +10,7 @@ class Header extends React.Component {
       <header className={styles.component}>
         <nav>
           <NavLink exact to='/' activeClassName='active'>Dodaj przepis</NavLink>
-          <NavLink exact to='myrecipe' activeClassName='active'>Twoje przepisy</NavLink>
-            
+          <NavLink exact to='/myrecipe' activeClassName='active'>Twoje przepisy</NavLink>
         </nav>
       </header>
     );
