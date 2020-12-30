@@ -1,1 +1,11 @@
-@import '../../styles/settings.scss';
+@import '../../../styles/settings.scss';
+.home {
+    justify-content: space-around;
+    display: flex;
+}
+.table {
+    background-color: $color-background;
+    width: 40%;
+    text-align: center;
+}
+    

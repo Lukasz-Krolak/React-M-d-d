@@ -5,7 +5,10 @@ class Board extends Component {
   render(){
     return(
       <div>
-        <p>składniki do wyboru</p>
+        <h1>Składniki</h1>
+        <div>
+          <p>ingredients</p>
+        </div>
       </div>
     );
   }
