@@ -1,19 +1,20 @@
 import React from 'react';
-import Board from '../Board/Board.js';
-import Card from '../Card/Card.js';
-import styles from './App.scss';
+// import Home from '../Views/Home';
+// import MyRecipe from '../Views/MyRecipe';
+// import styles from './App.scss';
+import {BrowserRouter} from 'react-router-dom';
 
 function App () {
   return (
-    <div className='App'>
-      <main className={styles.component}>
-        <Board id='board-1' className='board'>
-          <Card id='card-1' className='card' draggable='true'>
-            <p>skladnik1</p> 
-          </Card>
-        </Board>
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className='App'>
+        <p>123</p>
+        {/* <main className={styles.component}>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/myrecipe" component={MyRecipe} />
+        </main> */}
+      </div>
+    </BrowserRouter>
   );
 }
 
