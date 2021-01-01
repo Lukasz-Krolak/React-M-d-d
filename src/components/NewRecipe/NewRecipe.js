@@ -13,7 +13,7 @@ class NewRecipe extends React.Component{
   }
 
   static defaultProps = {
-    text: 'Add new item',
+    text: 'Nazwa Przepisu',
   }
 
   state = {
@@ -39,18 +39,6 @@ class NewRecipe extends React.Component{
     }
   }
 
-  handleCancel = () => {
-    if (window.confirm('Do you really want to leave?')) { 
-      window.open( 'Thanks for Visiting!');
-      this.setState({
-        value: '',
-        visibleButtons: false,
-      });
-    }
-  }
-  
-
-
   render() {
     return (
       <div className={styles.component}>
@@ -62,7 +50,6 @@ class NewRecipe extends React.Component{
         />
         <div className={styles.buttons + (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')}>
           <Button onClick={this.handleOK}>OK</Button>
-          <Button onClick={this.handleCancel} variant='danger'>cancel</Button>
         </div>
       </div>
     );

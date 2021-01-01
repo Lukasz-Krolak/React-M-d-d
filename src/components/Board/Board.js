@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 //import { connect } from 'react-redux'
+import Ingredient from '../Ingredient/Ingredient';
 
 class Board extends Component {
   render(){
@@ -7,7 +8,7 @@ class Board extends Component {
       <div>
         <h1>Składniki</h1>
         <div>
-          <p>ingredients</p>
+          <Ingredient/>
         </div>
       </div>
     );
