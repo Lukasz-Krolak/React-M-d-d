@@ -1,58 +1,42 @@
-// import React, { Component } from 'react';
-// import { DragSource } from 'react-dnd';
-// import { connect } from 'react-redux';
-
-// import { ItemTypes } from '../Constans/Constans';
+import React from 'react';
+import { useDrag  } from 'react-dnd';
+//import { connect } from 'react-redux';
+import { ingredients } from '../../utils/_DATA';
+import { ItemTypes } from '../Constans/Constans';
 // import { moveInRecipe } from '../../redux/ingredientRedux';
 
-// // phone DnD spec
-// const ingredientSpec = {
-//   beginDrag(props){
-//     return{
-//       name: props.brand,
-//       id: props.id,
-            
-//     };
-//   },
-//   endDrag(props, monitor, component){
-//     if (monitor.didDrop()){
-//       const dragItem = monitor.getItem();
-//       const dropResult = monitor.getDropResult();           
-//       console.log('You dropped ', dragItem.name, ' into '+ dropResult.name);
-//       // Move action goes here
-//       props.dispatch(moveInRecipe(dragItem.id));
-//     } else {
-//       return;
-//     }
-//   },
-// };
 
-// // ingredient DragSource collect
-// let collect = ( connect, monitor ) => {
-//   return{
-//     connectDragSource: connect.dragSource(),
-//     isDragging: monitor.isDragging(),
-//   };
-// };
 
-// class Ingredient extends Component{
-//   render(){
-//     const { brand } = this.props;
-//     const { isDragging, connectDragSource } = this.props;
-
-//     const opacity = isDragging? 0.4: 1;
-//     const style={
-//       opacity: opacity,
-//     };
-//     const ingredientClass = isDragging? 'ui card ingredient drag': 'ui card ingredient';
-//     return connectDragSource(
-//       <div className={ingredientClass} style={style}>
-//         <div className="content">
-//           <div className="ingredient-name">{ brand }</div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
+const Ingredient = props => {
+  const [{isDragging}, drag] = useDrag ({
+    item: {
+      type: ItemTypes.INGREDIENT,
+      
+    },
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  });
+  const { brand } = ingredients;
+  console.log('brand',brand);
+  return(
+    <div 
+      ref={drag}
+      opacity= {isDragging ? '0,5' : '1' }
+    >
+      <div>
+        <p>test</p>
+      </div>
+      <div>{ brand }</div>
+      <div>
+        { console.log('propsy',props) }
+      </div>
+      <div>
+        <p>qwerty</p>
+      </div>
+    </div>
+  );
+};
 
 // export default connect()(DragSource(ItemTypes.INGREDIENT, ingredientSpec, collect)(Ingredient));
+export default Ingredient;

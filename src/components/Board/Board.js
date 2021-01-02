@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-//import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import Ingredient from '../Ingredient/Ingredient';
+
 
 class Board extends Component {
   render(){
@@ -15,12 +16,11 @@ class Board extends Component {
   }
 }
 
-// function mapStateToProps({ingredients}){
+function mapStateToProps({ingredients}){
 
-//   return{
-//     ingredients,
-//   }
-// }
+  return{
+    ingredients,
+  };
+}
 
-//export default connect(mapStateToProps)(Board);
-export default Board;
+export default connect(mapStateToProps)(Board);
