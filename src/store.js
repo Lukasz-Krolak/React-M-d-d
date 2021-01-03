@@ -1,9 +1,9 @@
 import {combineReducers, createStore} from 'redux';
-import initialStoreData from '../data/dataStore';
+//import initialStoreData from '../data/dataStore';
 
 // define initial state and shallow-merge initial data
 const initialState = {
-  app: initialStoreData.app,
+  app: '',
 
 };
 // define reducers
