@@ -4,9 +4,12 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+  h3 {
+    text-align: left;
+  }
   .column {
     text-align: center;
-    width: 30%;
+    width: 40%;
   
   }
 }
@@ -21,12 +24,7 @@
   padding: 10px;
 
 }
-.item {
-  border: none;
-  margin: 10px 0;
-  color: white;
-  background-color: rgb(90, 48, 48);
-}
+
 
 .title {
   padding: ($base-size * 3) 0;
