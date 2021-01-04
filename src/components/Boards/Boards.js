@@ -5,6 +5,7 @@ import styles from './Boards.scss';
 import _ from 'lodash';
 import {v4} from 'uuid';
 
+
 const item = {
   id: v4(),
   name: 'Marchewka',
@@ -56,6 +57,8 @@ function Boards () {
       return prev;
     });
   };
+  console.log('state',state);
+  console.log('nazwaaaa',state['Nowy przepis']);
   return (
     <section className={styles.skeletor}>
       <DragDropContext onDragEnd={handleDragEnd}>
@@ -100,6 +103,6 @@ function Boards () {
       </DragDropContext>
     </section>
   );
+  
 }
-
-export default Boards;
+export default connect(Boards);

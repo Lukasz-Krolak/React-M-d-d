@@ -1,19 +1,27 @@
 import React from 'react';
-
+import Boards from '../Boards/Boards';
 
 class MyRecipe extends React.Component {
-    static propTypes = {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: '',
+    };
+  }
+        
+    passData = (passedData) => {
+      this.setState({ data: passedData });
+    };
 
-    }
-    render(){
-      return(
+    render() {
+      return (
         <div>
-          <main>
-            <p>dodane składniki</p>
-          </main>
+          <Boards passData={this.passData} />
+          <div> {this.state.data} </div>
         </div>
       );
     }
 }
+    
 
 export default MyRecipe;
