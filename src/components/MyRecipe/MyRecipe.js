@@ -1,27 +1,19 @@
 import React from 'react';
+//import {connect} from 'react-redux';
 import Boards from '../Boards/Boards';
+//import ReactDOM from 'react-router-dom';
 
+console.log('myidea',Boards);
+// ReactDOM.render(<document.getElementById('NewRecipe'));
 class MyRecipe extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: '',
-    };
+  render() {
+    return (
+      <div>
+        test
+      </div>
+    );
   }
-        
-    passData = (passedData) => {
-      this.setState({ data: passedData });
-    };
-
-    render() {
-      return (
-        <div>
-          <Boards passData={this.passData} />
-          <div> {this.state.data} </div>
-        </div>
-      );
-    }
 }
-    
+  
 
 export default MyRecipe;

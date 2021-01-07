@@ -3,37 +3,26 @@ import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import styles from './Boards.scss';
 import _ from 'lodash';
-import {v4} from 'uuid';
+import Ingredients from '../../data/_DATA';
+import Button from '../Button/Button';
+//import connect from 'react-redux';
+//export const NewRecipe = {state};
+//console.log('constNewrecipe',NewRecipe);
 
-
-const item = {
-  id: v4(),
-  name: 'Marchewka',
-};
-const item2 = {
-  id: v4(),
-  name: 'Ogórek',
-};
-const item3 = {
-  id: v4(),
-  name: 'Pietruszka',
-};
-const item4 = {
-  id: v4(),
-  name: 'Banan',
-};
 function Boards () {
   const [state, setState] = useState({ 
-    'Składnik':{
+    Ingred:{
       title: 'Składniki',
-      items: [item,item2,item3,item4],
+      items: [Ingredients.item, 
+        Ingredients.item2, 
+        Ingredients.item3, 
+        Ingredients.item4],
     },
-    'Nowy przepis':{
+    NewRecipe:{
       title: 'Nazwa przepisu',
       items: [],
     },
-  },
-  );
+  });
 
   const handleDragEnd = ({destination, source}) => {
     console.log('from', source);
@@ -60,49 +49,53 @@ function Boards () {
   console.log('state',state);
   console.log('nazwaaaa',state['Nowy przepis']);
   return (
-    <section className={styles.skeletor}>
-      <DragDropContext onDragEnd={handleDragEnd}>
-        {_.map(state, (data, key) => {
-          return(
-            <div key={key} className={styles.column}>
-              <h3>{data.title}</h3>
-              <Droppable droppableId={key}>
-                {(provided) => {
-                  return(
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.droppableProps}
-                      className={styles.droppablecol}
-                    >
-                      {data.items.map((el, index) => {
-                        return( 
-                          <Draggable key={el.id} index={index} draggableId={el.id}>
-                            {(provided) => {
-                              return(
-                                <div 
-                                  className={styles.item}  
-                                  ref={provided.innerRef}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                >
-                                  {el.name}
-                                </div>
-                              );
-                            }}
-                          </Draggable>
-                        );
-                      })}
-                      {provided.placeholder}
-                    </div>
-                  );
-                }}
-              </Droppable>
-            </div>
-          );
-        })}
-      </DragDropContext>
+    <section>
+      <div className={styles.skeletor}>
+        <DragDropContext onDragEnd={handleDragEnd}>
+          {_.map(state, (data, key) => {
+            return(
+              <div key={key} className={styles.column}>
+                <h3>{data.title}</h3>
+                <Droppable droppableId={key}>
+                  {(provided) => {
+                    return(
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        className={styles.droppablecol}
+                      >
+                        {data.items.map((el, index) => {
+                          return( 
+                            <Draggable key={el.id} index={index} draggableId={el.id}>
+                              {(provided) => {
+                                return(
+                                  <div 
+                                    className={styles.item}  
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                  >
+                                    {el.name}
+                                  </div>
+                                );
+                              }}
+                            </Draggable>
+                          );
+                        })}
+                      
+                        {provided.placeholder}
+                      </div>
+                    );
+                  }}
+                </Droppable>
+              </div>
+            );
+          })}
+        </DragDropContext>
+      </div>
+      <Button>OK</Button>
     </section>
   );
   
 }
-export default connect(Boards);
+export default Boards;

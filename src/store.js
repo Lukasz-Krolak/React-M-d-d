@@ -3,17 +3,13 @@ import {combineReducers, createStore} from 'redux';
 
 // define initial state and shallow-merge initial data
 const initialState = {
-  items: [{
-    id: '1', 
-    name: 'składnik',
-  },
-  ],
+
+  app: '',
 
 };
 // define reducers
 const reducers = {
   columns: '',
-
 };
   
 // add blank reducers for initial state properties without reducers
@@ -35,4 +31,3 @@ const store = createStore(
 );
   
 export default store;
-  

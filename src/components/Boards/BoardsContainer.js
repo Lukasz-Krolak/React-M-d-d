@@ -1,15 +1,27 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Boards from './Boards';
-import {getCardsForColumns} from '../../redux/cardsRedux.js';
-import {createActionAddCard} from '../../redux/cardsRedux.js';
+import { contactsFetched } from '../../Redux/boardsRedux';
 
-const mapStateToProps = (state, props) => ({
-  cards: getCardsForColumns(state, props.id),
-});
-const mapDispatchToProps = (dispatch, props) => ({
-  addCard: title => dispatch(createActionAddCard ({
-    columnId: props.id,
-    title,
-  })),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Boards);
+const mapStateToProps = (state) => {
+  return {
+    title: state.title,
+    items: state.items,
+  };
+};
+const mapDispatchToProps = { contactsFetched };
+
+export default connect (mapStateToProps, mapDispatchToProps)(Boards);
+
+
+
+
+// import { contactsFetched } from "./actions";
+
+// const mapStateToProps = (state) => {
+//   return {
+//     contacts: state.contacts // (1)
+//   }
+// };
+// const mapDispatchToProps = { contactsFetched }; // (2)
+
+// export const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
